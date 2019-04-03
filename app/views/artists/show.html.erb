@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Albums</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Spotify</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="/artists">Artistas</a>
+          <a class="nav-item nav-link" href="#">Mi música</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 ml-5 mw-100">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="text-left ml-5 mt-3"><%= @artist.name %></h1>
+          <div>
+            <h5 class="text-left ml-5 mt-3">Albums (<%= @albums.length %>) </h5>
+          </div>
+          <br>  
+          <div class="d-flex flex-wrap">
+            <% @albums.each do |album| %>
+            <div class="card d-flex align-items-center" style="width: 15rem;">
+            <img src="<%= album.image_url %>" alt="" class="album-display">
+            <div class="card-body text-left">
+              <h6 class="card-title"> <%= album.name %> </h6>
+              <h6> <%= album.released_at %> </h6>
+            </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <img src="<%=  @artist.image_url %>" alt="Album-cover" class="img-thumbnail album-cover">
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

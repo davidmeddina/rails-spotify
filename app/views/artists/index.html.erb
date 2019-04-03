@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Music!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Spotify</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">Artistas</a>
+        <a class="nav-item nav-link" href="#">Mi música</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <% @artists.each_slice(4) do |a| %>
+      <div class="row">
+        <% @artists.each do |f| %>
+          <div class="col-md-3">
+            <div class="card" style="width: 17rem;">
+              <img src="<%= f.image_url %>" alt="Imagen banda" class="card-img-top img-thumbnail">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><%=f.name%></h5>
+                  <%= link_to  "Ver más!", artist_path(f), class:"btn btn-outline-danger" %>
+                </div>
+            </div>
+          </div>
+        <% end %>
+     </div>
+    <% end %>
+  </div>
+  
+</body>
+</html>
